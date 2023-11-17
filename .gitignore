@@ -1,6 +1,7 @@
 package-lock.json
 database.sqlite
-
+*.vscode
+*.vs
 # Logs
 logs
 *.log

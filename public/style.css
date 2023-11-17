@@ -1,6 +1,6 @@
 .bg-image {
     height: 100%; 
-    background-image: url('img/nathalia-rosa-P1SdQAhcJz8-unsplash.jpg');
+    background-image: url('https://images.unsplash.com/photo-1597571063304-81f081944ee8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
 }
 
@@ -40,4 +40,38 @@
 
 .sidebar .nav-link.active {
     color: #0d6efd;
+}
+
+.div-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7% 0 15% 0;
+}
+
+.div-form-title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #24394E;
+    flex-direction: column;
+    color: white;
+    font-weight: bolder;
+    width: 450px;
+}
+
+img.img-logo-form {
+    width: 150px;
+    height: 150px;
+}
+
+#btn-login{
+    margin-bottom: 25px;
+}
+.a-link{
+    text-decoration: none;
+}
+
+.div-title{
+    text-align: center;
 }

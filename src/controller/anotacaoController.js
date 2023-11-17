@@ -1,4 +1,4 @@
-const Anotacao = require('../model/anotacao');
+const Anotacao = require('../model/desejo');
 
 function indexView(req, res) {
     res.render('index.html');

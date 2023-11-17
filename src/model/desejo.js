@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
 
-const Anotacao = database.define('anotacao', {
+const Desejo = database.define('desejo', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -16,22 +16,18 @@ const Anotacao = database.define('anotacao', {
         type: Sequelize.STRING,
         allowNull: false
     },
-    subtitulo: {
-        type: Sequelize.STRING,
+    preco: {
+        type: Sequelize.DOUBLE,
         allowNull: false
     },
-    texto: {
+    url_imagem: {
         type: Sequelize.STRING,
         allowNull: false
     },
     indicador_ativo: {
         type: Sequelize.INTEGER,
         allowNull: false
-    },
-    estilo: {
-        type: Sequelize.STRING,
-        allowNull: false
     }
 });
 
-module.exports = Anotacao;
+module.exports = Desejo;
