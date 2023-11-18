@@ -24,10 +24,9 @@ app.use(session({
 app.use('/', require('./src/routes/anotacaoRoutes'));
 app.use('/', require('./src/routes/usuarioRoutes'));
 app.use('/', require('./src/routes/autenticacaoRoutes'));
-
 db.sync(() => console.log(`Banco de dados conectado`));
 
 const app_port = 8080
 app.listen(app_port, function () {
-    console.log('app rodando na porta ' + app_port)
+    console.log('http://localhost:' + app_port)
 })

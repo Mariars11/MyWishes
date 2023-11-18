@@ -7,15 +7,22 @@ function cadastrarUsuario(req, res) {
         nome: req.body.nome,
         data_nascimento: req.body.data_nascimento
     }
-    
-    Usuario.create(usuario).then(()=>{
-        let sucesso = true;
-        res.render("index.html", {sucesso});
-    }).catch((err)=>{
-        console.log(err);
+    if(usuario.email != "" && usuario.data_nascimento != ""
+    && usuario.nome != "" && usuario.senha){
+        Usuario.create(usuario).then(()=>{
+            let sucesso = true;
+            res.render("index.html", {sucesso});
+        }).catch((err)=>{
+            console.log(err);
+            let erro = true;
+            res.render("index.html", {erro});
+        });
+    }
+    else{
         let erro = true;
-        res.render("index.html", {erro});
-    });
+        res.render("cadastro.html", {erro});
+    }
+    
 
 }
 

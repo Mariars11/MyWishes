@@ -5,6 +5,7 @@ const anotacaoController = require('../controller/anotacaoController');
 const autenticacaoController = require('../controller/autenticacaoController');
 
 router.get('/', anotacaoController.indexView);
+router.get('/cadastrar', anotacaoController.cadastroView);
 router.get('/home', autenticacaoController.verificarAutenticacao, anotacaoController.homeView);
 router.post('/cadastrar_anotacao', autenticacaoController.verificarAutenticacao, anotacaoController.cadastrarAnotacao)
 

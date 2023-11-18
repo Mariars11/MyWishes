@@ -1,21 +1,21 @@
 {
-  "name": "sertech-oficina-expressjs",
+  "name": "mywishes",
   "version": "1.0.0",
-  "description": "Repositório de códigos para a oficina de Express.js do evento SerTech da UCB",
+  "description": "Projeto final da disciplina de Programação Web",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jpmacleure/sertech-oficina-expressjs.git"
+    "url": "git+https://github.com/Mariars11/MyWishes.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jpmacleure/sertech-oficina-expressjs/issues"
+    "url": "https://github.com/Mariars11/MyWishes.git/issues"
   },
-  "homepage": "https://github.com/jpmacleure/sertech-oficina-expressjs#readme",
+  "homepage": "https://github.com/Mariars11/MyWishes.git#readme",
   "dependencies": {
     "express": "^4.18.2",
     "express-session": "^1.17.2",

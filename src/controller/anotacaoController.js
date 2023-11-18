@@ -3,7 +3,9 @@ const Anotacao = require('../model/desejo');
 function indexView(req, res) {
     res.render('index.html');
 }
-
+function cadastroView(req, res) {
+    res.render('cadastro.html');
+}
 function homeView(req, res) {
 
     Anotacao.findAll({
@@ -15,9 +17,7 @@ function homeView(req, res) {
         res.render('home.html', {anotacaos});
     }).catch((erro_recupera_anotacaos)=>{
         res.render('home.html', {erro_recupera_anotacaos});
-    });
-
-    
+    }); 
 }
 
 function cadastrarAnotacao(req, res) {
@@ -43,5 +43,6 @@ function cadastrarAnotacao(req, res) {
 module.exports = {
     indexView,
     homeView,
-    cadastrarAnotacao
+    cadastrarAnotacao,
+    cadastroView
 }
