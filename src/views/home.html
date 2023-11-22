@@ -33,9 +33,11 @@
             <li class="nav-item">
               <a class="nav-link" href="/comprados"><p>Comprados</p></a>
             </li>
+            {{#usuario}}
             <li class="nav-item">
-              <a class="nav-link" href="/editar_perfil"><p>Editar Perfil</p></a>
+              <a class="nav-link" href="/editar_perfil/{{id_user}}"><p>Editar Perfil</p></a>
             </li>
+            {{/usuario}}
             <li id="li-sair" class="nav-item">
               <a class="nav-link" href="/sair"><p>Sair</p></a>            
             </li>
@@ -64,14 +66,14 @@
                       </div>
                       <div class="btns-edit-del">
                         <div>
-                          <form action="/editar_desejo/{{id}}/" method="get">
+                          <form action="/editar_desejo/{{id_des}}/" method="get">
                             <button type="submit" class="btn btn-primary btn-sm">
                               <span aria-hidden="true">✏️</span>
                             </button>
                           </form> 
                         </div>
                         <div>
-                          <form action="/excluir_desejo/{{id}}" method="post">
+                          <form action="/excluir_desejo/{{id_des}}" method="post">
                             <button type="submit" class="btn btn-danger btn-sm">
                               <span aria-hidden="true">✖️</span>
                             </button>
@@ -98,15 +100,15 @@
             <form action="/cadastrar_desejo" method="post">
               <div class="mb-1 mt-1">
                 <label for="titulo" class="form-label">Titulo:</label>
-                <input type="text" class="form-control" id="titulo" placeholder="Informe o titulo do produto desejado" name="titulo">
+                <input required type="text" class="form-control" id="titulo" placeholder="Informe o titulo do produto desejado" name="titulo">
               </div>
               <div class="mb-1">
                 <label for="preco" class="form-label">Preço:</label>
-                <input type="text" placeholder="Informe o preço" class="form-control" id="preco" name="preco">
+                <input type="text" required placeholder="Informe o preço" class="form-control" id="preco" name="preco">
               </div>
               <div class="mb-1">
                 <label for="url" class="form-label">Url da Imagem:</label>
-                <input type="text" placeholder="Copie e cole aqui, o link de uma imagem do produto" class="form-control" id="url_imagem" name="url_imagem">
+                <input type="text" required placeholder="Copie e cole aqui, o link de uma imagem do produto" class="form-control" id="url_imagem" name="url_imagem">
               </div>
               <button type="submit" id="btn-login" class="btn btn-primary w-100">Adicionar</button>
           </form> 

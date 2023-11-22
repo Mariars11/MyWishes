@@ -1,4 +1,5 @@
 const Desejo = require('../model/desejo');
+const Usuario = require('../model/usuario');
 
 function indexView(req, res) {
     res.render('index.html');
@@ -7,10 +8,9 @@ function cadastroView(req, res) {
     res.render('cadastro.html');
 }
 function homeView(req, res) {
-
     Desejo.findAll({
         where: {
-            id_usuario: req.session.usuario.id,
+            id_usuario: req.session.usuario.id_user,
             indicador_ativo: 1
         }
     }).then((desejos)=>{
@@ -20,51 +20,68 @@ function homeView(req, res) {
     }); 
 }
 function compradosView(req, res) {
-
-    Desejo.findAll({
+    Usuario.findOne({
         where: {
-            id_usuario: req.session.usuario.id,
-            indicador_ativo: 0
+            id_user: req.session.usuario.id_user,
         }
-    }).then((desejos)=>{
-        res.render('desejosComprados.html', {desejos});
-    }).catch((erro_recupera_desejos)=>{
-        res.render('desejosComprados.html', {erro_recupera_desejos});
-    }); 
+    }).then((usuario)=>{
+        Desejo.findAll({
+            where: {
+                id_usuario: req.session.usuario.id_user,
+                indicador_ativo: 0
+            }
+        }).then((desejos)=>{
+            res.render('desejosComprados.html', {desejos, usuario});
+        }).catch((erro_recupera_desejos)=>{
+            res.render('desejosComprados.html', {erro_recupera_desejos});
+        }); 
+    }).catch((erro_alterar_usuario)=>{
+        res.render('home.html', {erro_alterar_usuario});
+    });
 }
 function homeViewOne(req, res) {
-    Desejo.findOne({
+    Usuario.findOne({
         where: {
-            id: req.params.id,
+            id_user: req.session.usuario.id_user,
         }
-    }).then((desejo)=>{
-        res.render('editarDesejo.html', {desejo});
-    }).catch((erro_recupera_desejos)=>{
-        res.render('editarDesejo.html', {erro_recupera_desejos});
-    });  
+    }).then((usuario)=>{
+        Desejo.findOne({
+            where: {
+                id_des: req.params.id,
+            }
+        }).then((desejo)=>{
+            res.render('editarDesejo.html', {desejo, usuario});
+        }).catch((erro_recupera_desejos)=>{
+            res.render('editarDesejo.html', {erro_recupera_desejos});
+        }); 
+    }).catch((erro_alterar_usuario)=>{
+        res.render('home.html', {erro_alterar_usuario});
+    });
+    
 }
 function cadastrarDesejo(req, res) {
     let desejo = {
         titulo: req.body.titulo,
-        id_usuario: req.session.usuario.id,
+        id_usuario: req.session.usuario.id_user,
         preco: req.body.preco,
         url_imagem: req.body.url_imagem,
         indicador_ativo: 1,
     }
-    
-    Desejo.create(desejo).then(()=>{
-        res.redirect('/home');
-    }).catch((err)=>{
-        console.log(err);
-        let erro_cadastrar_desejo = true;
-        res.render("home.html", {erro_cadastrar_desejo});
-    });
-
+    if(desejo.preco != "" && desejo.titulo != "" &&
+        desejo.url_imagem != "" && desejo.id_usuario != ""){
+            Desejo.create(desejo).then(()=>{
+                res.redirect('/home');
+            }).catch((err)=>{
+                console.log(err);
+                let erro_cadastrar_desejo = true;
+                res.render("home.html", {erro_cadastrar_desejo});
+            });
+        }
 }
 function editarDesejo(req, res) {
     Desejo.findOne({
         where: {
-            id: req.params.id,
+            id_des: req.params.id,
         }
     }).then((desejo)=>{
         desejo.update({
@@ -75,7 +92,7 @@ function editarDesejo(req, res) {
         }) 
         desejo.save()
        
-        res.render('editarDesejo.html', {desejo});
+        res.redirect('/home');
     }).catch((erro_recupera_desejos)=>{
         res.render('editarDesejo.html', {erro_recupera_desejos});
     }); 
@@ -83,7 +100,7 @@ function editarDesejo(req, res) {
 function excluirDesejo(req, res) {
     Desejo.findOne({
         where: {
-            id: req.params.id,
+            id_des: req.params.id,
         }
     }).then((desejo)=>{
         desejo.destroy();

@@ -32,9 +32,11 @@
             <li class="nav-item">
               <a class="nav-link" href="/comprados"><p>Comprados</p></a>
             </li>
+            {{#usuario}}
             <li class="nav-item">
-              <a class="nav-link" href="/editar_perfil"><p>Editar Perfil</p></a>
+              <a class="nav-link" href="/editar_perfil/{{id_user}}"><p>Editar Perfil</p></a>
             </li>
+            {{/usuario}}
             <li id="li-sair" class="nav-item">
               <a class="nav-link" href="/sair"><p>Sair</p></a>            
             </li>
@@ -58,6 +60,7 @@
                       <div>
                         <p class="card-text">R$ {{preco}}</p>
                       </div>
+                    </div>
                 </div>
             </div>
             {{/desejos}}

@@ -25,19 +25,19 @@
               <form action="/cadastrar_usuario" method="post">
                 <div class="mb-1">
                   <label for="nome" class="form-label">Nome:</label>
-                  <input placeholder="Informe o nome completo" type="text" class="form-control" id="nome" name="nome">
+                  <input required placeholder="Informe o nome completo" type="text" class="form-control" id="nome" name="nome">
                 </div>
                 <div class="mb-1">
                   <label for="data_nascimento" class="form-label">Data de nascimento:</label>
-                  <input type="date" class="form-control" id="data_nascimento" name="data_nascimento">
+                  <input required type="date" class="form-control" id="data_nascimento" name="data_nascimento">
                 </div>
                 <div class="mb-1 mt-1">
                   <label for="email" class="form-label">Email:</label>
-                  <input placeholder="Informe um e-mail válido" type="email" class="form-control" id="email" name="email">
+                  <input required placeholder="Informe um e-mail válido" type="email" class="form-control" id="email" name="email">
                 </div>
                 <div class="mb-1">
                   <label for="senha" class="form-label">Senha:</label>
-                  <input type="password" placeholder="Informe a senha" class="form-control" id="senha" name="senha">
+                  <input  required type="password" placeholder="Informe a senha" class="form-control" id="senha" name="senha">
                 </div>
                 <button type="submit" id="btn-cadastro" class="btn btn-success w-100 mb-3">Cadastrar</button>
             </form> 

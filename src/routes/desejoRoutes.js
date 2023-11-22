@@ -6,7 +6,7 @@ const autenticacaoController = require('../controller/autenticacaoController');
 
 router.get('/', desejoControler.indexView);
 router.get('/cadastrar', desejoControler.cadastroView);
-router.get('/home', autenticacaoController.verificarAutenticacao, desejoControler.homeView);
+router.get('/home',  autenticacaoController.verificarAutenticacao, autenticacaoController.OneUser, desejoControler.homeView);
 router.post('/cadastrar_desejo', autenticacaoController.verificarAutenticacao, desejoControler.cadastrarDesejo)
 router.get('/comprados', autenticacaoController.verificarAutenticacao, desejoControler.compradosView)
 router.get('/editar_desejo/:id', autenticacaoController.verificarAutenticacao, desejoControler.homeViewOne)

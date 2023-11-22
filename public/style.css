@@ -71,6 +71,10 @@
     font-weight: bolder;
     width: 450px;
 }
+#alertsucess-editarPerfil, #alertdanger-editarPerfil{
+    width: 55%;
+    margin-left: 16%;
+}
 #img-sidebar{
     width: 75px;
     height: 75px;
@@ -98,6 +102,12 @@ button.btn.btn-danger > span, button.btn.btn-primary > span {
     flex-direction: row;
     gap: 10px;
     align-content: center;
+    margin-top: 15px;
+}
+.body-editarProduto{
+    background-color: #333;
+    color: white;
+    font-weight: bolder;
 }
 .btns-edit-del{
     display: inherit;

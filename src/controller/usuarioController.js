@@ -36,5 +36,5 @@ function listarUsuarios(req, res) {
 
 module.exports = {
     cadastrarUsuario,
-    listarUsuarios
+    listarUsuarios,
 }

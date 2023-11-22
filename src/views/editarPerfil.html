@@ -46,36 +46,43 @@
     <div class="main-content">
       <div class="div-line-h1-btn" id="div-line-id">
         <div>
-          <h1>Editar desejo</h1>
+          <h1>Editar Perfil</h1>
         </div>
-      </div>    
+      </div>  
+      {{#sucesso}}
+        <div id="alertsucess-editarPerfil" class="alert alert-success">
+          Perfil alterado com sucesso!
+        </div>
+      {{/sucesso}}
+      {{#erro}}
+        <div id="alertdanger-editarPerfil" class="alert alert-danger">
+          Erro ao alterar perfil!
+        </div>
+      {{/erro}}  
       <div class="row my-4" id="div-form-edit-row">
-        {{#desejo}}
+        {{#usuario}}
         <div class="div-form-edit">
-          <form action="/editar_desejo/{{id_des}}/" method="post">
+          <form action="/editar_perfil/{{id_user}}/" method="post">
+            <div class="mb-1">
+                <label for="nome" class="form-label">Nome:</label>
+                <input required placeholder="Informe o nome completo" value="{{nome}}" type="text" class="form-control" id="nome" name="nome">
+              </div>
+              <div class="mb-1">
+                <label for="data_nascimento" class="form-label">Data de nascimento:</label>
+                <input required type="date" class="form-control" value="{{data_nascimento}}" id="data_nascimento" name="data_nascimento">
+              </div>
               <div class="mb-1 mt-1">
-                <label for="titulo" class="form-label">Titulo:</label>
-                <input type="text" class="form-control" value="{{titulo}}" id="titulo" placeholder="Informe o titulo do produto desejado" name="titulo">
+                <label for="email" class="form-label">Email:</label>
+                <input required placeholder="Informe um e-mail válido" value="{{email}}" type="email" class="form-control" id="email" name="email">
               </div>
               <div class="mb-1">
-                <label for="preco" class="form-label">Preço:</label>
-                <input type="text" value="{{preco}}" placeholder="Informe o preço" class="form-control" id="preco" name="preco">
+                <label for="senha" class="form-label">Senha:</label>
+                <input  required type="password" placeholder="Informe a senha" value="{{senha}}" class="form-control" id="senha" name="senha">
               </div>
-              <div class="mb-1">
-                <label for="url" class="form-label">Url da Imagem:</label>
-                <textarea type="text" placeholder="Copie e cole aqui, o link de uma imagem do produto" class="form-control" id="url_imagem" name="url_imagem">{{url_imagem}}</textarea>
-              </div>
-              <div class="mb-1">
-                <label for="indicador" class="form-label">Item comprado?</label>
-                <select name="indicador_ativo" class="form-select">
-                  <option  value="1">Não</option>
-                  <option value="0">Sim</option>
-                </select>
-              </div>
-              <button type="submit" id="btn-login" class="btn btn-primary w-100">Editar Produto</button>
+              <button type="submit" id="btn-login" class="btn btn-primary w-100">Editar Perfil</button>
           </form>
         </div>
-        {{/desejo}}
+        {{/usuario}}
       </div>
     </div>
   </div>
